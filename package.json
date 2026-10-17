@@ -1,0 +1,27 @@
+{
+  "name": "bonka-dev",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^22.22.3 || ^24.15.0 || >=26.0.0"
+  },
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "@lucide/vue": "^1.57.0",
+    "@nuxt/content": "^3.16.2",
+    "@thenick775/mgba-wasm": "^2.5.1",
+    "better-sqlite3": "^13.0.3",
+    "nuxt": "4.6.1",
+    "shiki": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.3.13"
+  }
+}
