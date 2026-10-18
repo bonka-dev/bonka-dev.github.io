@@ -1191,6 +1191,9 @@ footer a:hover {
   font: 12px/1.72 var(--mono);
   counter-reset: source-line;
 }
+.source-code::-webkit-scrollbar {
+    display: none;
+}
 .source-code .shiki {
   min-width: max-content;
   margin: 0;
