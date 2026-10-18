@@ -117,7 +117,7 @@ const activeLayer = ref('Trees')
           </div>
         </div>
         <div class="preview-bottom">
-          <span><b /> Saved</span><span>ISO / 32 × 64</span><span>⌘ S</span>
+          <span><b /> Saved</span><span>ISO / 32 × 64</span><span class="preview-credit"><a href="https://kipperfalcon.itch.io/2d-isometric-forest-pixel-art" target="_blank" rel="noreferrer">Assets</a> by <a href="https://kipperfalcon.itch.io/" target="_blank" rel="noreferrer">KipperFalcon</a><button class="permission-info" type="button" aria-label="Asset permission" aria-describedby="asset-permission-note">i</button><span id="asset-permission-note" class="permission-note" role="tooltip">Assets used with permission from KipperFalcon.</span></span>
         </div>
       </figure>
     </section>
