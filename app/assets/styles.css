@@ -1479,11 +1479,14 @@ footer a:hover {
     width: 34px;
     height: 34px;
     padding: 8px 6px;
-    border: 1px solid var(--line);
+    border: 1px solid transparent;
     place-content: center;
     gap: 5px;
     color: var(--ink);
     background: transparent;
+  }
+  .menu-toggle[aria-expanded="true"] {
+    border-color: var(--gold);
   }
   .menu-toggle span {
     display: block;
