@@ -76,19 +76,19 @@ footer {
 .brand span {
   color: var(--ink);
 }
-nav {
+.site-nav {
   display: flex;
   gap: 32px;
   margin-left: 105px;
 }
-nav a,
+.site-nav a,
 .header-link {
   color: var(--muted);
   font: 500 11px/1 var(--mono);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-nav a:hover,
+.site-nav a:hover,
 .header-link:hover,
 .text-link:hover {
   color: var(--gold);
@@ -127,6 +127,10 @@ nav a:hover,
 }
 .header-github:hover {
   color: var(--gold);
+}
+.menu-toggle,
+.mobile-nav {
+  display: none;
 }
 .hero {
   display: grid;
@@ -1448,10 +1452,14 @@ footer a:hover {
   .site-header {
     height: 68px;
   }
+  .site-header.menu-open {
+    background: var(--paper);
+    box-shadow: 0 8px 24px rgb(0 0 0 / .12);
+  }
   .brand {
     font-size: 29px;
   }
-  nav {
+  .site-nav {
     display: none;
   }
   .header-link {
@@ -1461,7 +1469,68 @@ footer a:hover {
     padding: 6px 7px;
   }
   .header-actions {
-    gap: 14px;
+    gap: 10px;
+  }
+  .header-github {
+    display: none;
+  }
+  .menu-toggle {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    padding: 8px 6px;
+    border: 1px solid var(--line);
+    place-content: center;
+    gap: 5px;
+    color: var(--ink);
+    background: transparent;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: currentColor;
+    transform-origin: center;
+    transition: transform .2s ease, opacity .15s ease;
+  }
+  .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(.2);
+  }
+  .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+  .mobile-nav {
+    position: absolute;
+    top: calc(100% + 1px);
+    right: 0;
+    display: grid;
+    width: min(280px, calc(100vw - 32px));
+    padding: 10px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    box-shadow: 0 16px 32px rgb(0 0 0 / .24);
+  }
+  .mobile-nav a {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 12px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--line);
+    font: 500 11px/1 var(--mono);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .mobile-nav a:last-child {
+    border-bottom: 0;
+    color: var(--gold);
+  }
+  .mobile-nav a:hover {
+    color: var(--gold);
+    background: var(--panel);
   }
   .hero {
     min-height: auto;
