@@ -1476,9 +1476,9 @@ footer a:hover {
   }
   .menu-toggle {
     display: grid;
-    padding: 0 5px;
+    padding: 5px 5px 0;
     border: 1px solid transparent;
-    place-content: center;
+    place-content: start center;
     gap: 5px;
     color: var(--ink);
     background: transparent;
