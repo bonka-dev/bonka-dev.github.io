@@ -22,6 +22,16 @@ let disposed = false
 let romRequest: AbortController | null = null
 let romPath = ''
 
+function errorMessage(cause: unknown, fallback: string) {
+  const message = cause instanceof Error ? cause.message : fallback
+
+  if (/WebAssembly\.Memory\(\): could not allocate memory/i.test(message)) {
+    return "Couldn't start the emulator. This browser wasn't able to reserve the memory it needs. Close unused tabs or apps and reload the page. If the issue persists, clear site data for bonka.dev or try another browser."
+  }
+
+  return message
+}
+
 function stop(instance: Emulator | null) {
   if (!instance) return
 
@@ -79,7 +89,7 @@ async function start() {
     status.value = 'Running'
   } catch (cause) {
     if (disposed || (cause instanceof DOMException && cause.name === 'AbortError')) return
-    error.value = cause instanceof Error ? cause.message : 'The emulator could not be started.'
+    error.value = errorMessage(cause, 'The emulator could not be started.')
   } finally {
     romRequest = null
   }
@@ -107,7 +117,7 @@ function restart() {
     paused.value = false
     status.value = 'Running'
   } catch (cause) {
-    error.value = cause instanceof Error ? cause.message : 'The Welcome ROM could not be restarted.'
+    error.value = errorMessage(cause, 'The Welcome ROM could not be restarted.')
   }
 }
 
